@@ -169,9 +169,16 @@
 /* BOTONES Y LLAMADOS A LA ACCIÓN */
 /* ===================================== */
 
+.btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .btns a {
   display: inline-block;
-  margin-right: 10px;
   padding: .6rem 1rem;
   border-radius: 10px;
   text-decoration: none;
@@ -276,7 +283,8 @@
   transition: var(--transition);
 }
 .kpi:hover { border-color: var(--secondary-color); transform: translateY(-2px); }
-.kpi .v { font-size: 2rem; font-weight: 700; color: var(--secondary-color); margin-bottom: 0.5rem; }
+.kpi .v { font-size: 1.5rem; font-weight: 700; color: var(--secondary-color); margin-bottom: 0.5rem; }
+.kpi div:not(.v) { font-size: 1rem; font-weight: 400; color: var(--primary-color); line-height: 1.4; }
 
 /* ===================================== */
 /* SECCIONES ESPECIALES */
