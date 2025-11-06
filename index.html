@@ -122,22 +122,43 @@
     <!-- 4. PROCESO PRODUCTIVO (Mermaid 7 etapas) -->
     <section data-transition="fade">
       <h2>4. Proceso productivo (7 etapas)</h2>
-      <div class="mermaid">
-%%{init: {'theme':'base','themeVariables':{
-'primaryColor':'#000000','primaryTextColor':'#FFD700','primaryBorderColor':'#FFD700',
-'secondaryColor':'#1B1B1B','tertiaryColor':'#F5F5F5'
-}}}%%
-graph TD
-  A["🎯 Requisitos<br/><small>Brief, categorías, UX y SEO</small>"] --> B["⚙️ Configuración<br/><small>Hosting, BD, SSL, .env</small>"]
-  B --> C["💻 Desarrollo<br/><small>Frontend catálogo + Backend CRUD/Auth</small>"]
-  C --> D["📦 Carga catálogo<br/><small>≤60 refs, slugs, precios, imágenes</small>"]
-  D --> E["🔍 SEO & Métricas<br/><small>Metadatos, JSON-LD, Search Console</small>"]
-  E --> F["🧪 QA<br/><small>Responsive, accesibilidad, Lighthouse</small>"]
-  F --> G["🎓 Capacitación<br/><small>Manual, deploy y soporte</small>"]
-classDef node fill:#0f0f0f,stroke:#FFD700,color:#FFD700,stroke-width:1.5px;
-class A,B,C,D,E,F,G node;
+      <div class="mermaid-container">
+        <div class="mermaid">
+          ---
+          config:
+            theme: base
+            themeVariables:
+              primaryColor: '#000000'
+              primaryBorderColor: '#FFD700'
+              primaryTextColor: '#FFD700'
+              lineColor: '#FFD700'
+              edgeLabelBackground: '#1B1B1B'
+              secondaryColor: '#1B1B1B'
+              tertiaryColor: '#F5F5F5'
+              fontFamily: ''
+            flowchart:
+              nodeSpacing: 50
+              rankSpacing: 80
+              curve: basis
+          ---
+          flowchart LR
+              A["🎯 Levantamiento<br/>de requisitos<br/><small>Brief, categorías,<br/>UX móvil y SEO</small>"] --> B["⚙️ Configuración<br/>técnica<br/><small>Hosting, BD,<br/>SSL y .env</small>"]
+              B --> C["💻 Desarrollo visual<br/>y funcional<br/><small>Frontend catálogo<br/>Backend CRUD/Auth</small>"]
+              C --> D["📦 Carga del<br/>catálogo<br/><small>≤60 refs, slugs,<br/>imágenes optimizadas</small>"]
+              D --> E["🔍 Optimización<br/>para buscadores<br/><small>Metadatos, H1–H3,<br/>JSON-LD, Analytics</small>"]
+              E --> F["🧪 Pruebas de<br/>calidad<br/><small>Responsive, A11y,<br/>Lighthouse, QA</small>"]
+              F --> G["🎓 Capacitación<br/>del cliente<br/><small>Manual de uso,<br/>despliegue y soporte</small>"]
+              style A fill:#000,stroke:#FFD700,stroke-width:2px,color:#FFD700
+              style B fill:#111,stroke:#FFD700,stroke-width:1.5px,color:#FFD700
+              style C fill:#FFD700,stroke:#000,stroke-width:2px,color:#000
+              style D fill:#fff8dc,stroke:#FFD700,stroke-width:1.5px,color:#000
+              style E fill:#f0f0f0,stroke:#32CD32,stroke-width:2px,color:#000
+              style F fill:#32CD32,stroke:#000,stroke-width:1.5px,color:#fff
+              style G fill:#000,stroke:#32CD32,stroke-width:2px,color:#32CD32
+
+        </div>
       </div>
-      <p class="caption">Total: <strong>47 h</strong> — desarrollo, contenido y pruebas; con seguridad y control de versiones.</p>
+      <p class="caption"><strong>47 horas efectivas</strong> distribuidas entre desarrollo, contenido y pruebas — Bajo estándares de seguridad, accesibilidad y control de versiones</p>
     </section>
 
     <!-- 5. EQUIPO (Mermaid) -->
@@ -146,6 +167,7 @@ class A,B,C,D,E,F,G node;
       <div class="mermaid">
 %%{init: {'theme':'base','themeVariables':{
 'primaryColor':'#000000','primaryTextColor':'#FFD700','primaryBorderColor':'#FFD700',
+'lineColor':'#FFD700','edgeLabelBackground':'#1B1B1B',
 'secondaryColor':'#1B1B1B','tertiaryColor':'#F5F5F5'
 }}}%%
 graph TD
