@@ -1,230 +1,212 @@
-﻿// Configuración Reveal.js optimizada para MALEJA Calzado
-// Paleta de colores basada en el PMV real
+﻿/**
+ * presentation.js
+ * Configuración Reveal.js personalizada para el video pitch del PMV MALEJA Calzado
+ * Autor: William Pérez Muñoz
+ * Programa: Tecnología en ADSO — SENA
+ */
 
+// Paleta de colores corporativos MALEJA
 const MALEJA_COLORS = {
-    // Colores principales del PMV
-    primary: '#d4aa3a',      // Dorado MALEJA (botones, acentos)
-    secondary: '#25d366',     // Verde WhatsApp (CTAs)
-    dark: '#1a1a1a',         // Negro principal
-    darkAlt: '#2a2a2a',      // Negro alternativo
-    light: '#ffffff',         // Blanco
-    lightAlt: '#f8f9fa',     // Gris claro
-    accent: '#d4aa3a',       // Dorado para highlights
-    shadow: 'rgba(212, 170, 58, 0.3)' // Sombra dorada
+  primary: "#d4aa3a", // Dorado
+  secondary: "#25d366", // Verde WhatsApp
+  dark: "#1a1a1a", // Negro principal
+  light: "#ffffff", // Blanco
+  shadow: "rgba(212,170,58,0.3)",
 };
 
-// Configuración principal de Reveal.js
+// ================================
+// 🚀 CONFIGURACIÓN DE REVEAL.JS
+// ================================
 Reveal.initialize({
-    // Configuración esencial
-    hash: true,
-    center: true,
-    controls: true,
-    progress: true,
-    history: true,
-    keyboard: true,
-    overview: true,
-    touch: true,
-    
-    // Navegación
-    controlsLayout: 'bottom-right',
-    controlsBackArrows: 'faded',
-    
-    // Transiciones suaves
-    transition: 'slide',
-    transitionSpeed: 'default',
-    backgroundTransition: 'fade',
-    
-    // Configuración responsive
-    width: '100%',
-    height: '100%',
-    margin: 0.04,
-    minScale: 0.2,
-    maxScale: 2.0,
-    
-    // Características adicionales
-    fragments: true,
-    showSlideNumber: 'c/t', // Formato: actual/total
-    hideInactiveCursor: true,
-    hideCursorTime: 3000,
-    
-    // Auto-slide desactivado (presentación manual)
-    autoSlide: 0,
-    
-    // PDF export
-    pdfMaxPagesPerSlide: 1,
-    pdfSeparateFragments: true
+  hash: true,
+  progress: true,
+  center: true,
+  history: true,
+  controls: true,
+  touch: true,
+  keyboard: true,
+  overview: true,
+
+  // Navegación y transiciones
+  controlsLayout: "bottom-right",
+  controlsBackArrows: "faded",
+  transition: "fade",
+  transitionSpeed: "default",
+  backgroundTransition: "slide",
+
+  // Escalado y márgenes
+  width: "100%",
+  height: "100%",
+  margin: 0.05,
+  minScale: 0.2,
+  maxScale: 2.0,
+
+  // Opciones adicionales
+  showSlideNumber: "c/t",
+  hideInactiveCursor: true,
+  hideCursorTime: 3000,
+  autoSlide: 0,
 });
 
-// Función para aplicar estilos de MALEJA a los controles
-function applyMALEJABranding() {
-    // Estilizar controles de navegación
-    const controls = document.querySelector('.reveal .controls');
+// ================================
+// 🎨 APLICAR ESTILO CORPORATIVO
+// ================================
+function applyBranding() {
+  const controls = document.querySelector(".reveal .controls");
+  const progress = document.querySelector(".reveal .progress");
+  const slideNumber = document.querySelector(".reveal .slide-number");
+
+  // Navegación
+  if (controls) {
+    controls.querySelectorAll("button").forEach((btn) => {
+      Object.assign(btn.style, {
+        background: MALEJA_COLORS.dark,
+        border: `2px solid ${MALEJA_COLORS.primary}`,
+        color: MALEJA_COLORS.light,
+        borderRadius: "8px",
+        padding: "8px",
+        transition: "all 0.3s ease",
+        boxShadow: `0 3px 8px ${MALEJA_COLORS.shadow}`,
+      });
+
+      btn.addEventListener("mouseenter", () => {
+        Object.assign(btn.style, {
+          background: MALEJA_COLORS.primary,
+          color: MALEJA_COLORS.dark,
+          transform: "translateY(-2px)",
+        });
+      });
+
+      btn.addEventListener("mouseleave", () => {
+        Object.assign(btn.style, {
+          background: MALEJA_COLORS.dark,
+          color: MALEJA_COLORS.light,
+          transform: "translateY(0)",
+        });
+      });
+    });
+  }
+
+  // Progreso
+  if (progress) {
+    progress.style.height = "4px";
+    progress.style.background = MALEJA_COLORS.dark;
+    const bar = progress.querySelector("span");
+    if (bar) {
+      bar.style.background = `linear-gradient(90deg, ${MALEJA_COLORS.primary}, ${MALEJA_COLORS.secondary})`;
+      bar.style.boxShadow = `0 0 10px ${MALEJA_COLORS.shadow}`;
+    }
+  }
+
+  // Número de slide
+  if (slideNumber) {
+    Object.assign(slideNumber.style, {
+      background: MALEJA_COLORS.dark,
+      color: MALEJA_COLORS.primary,
+      border: `1px solid ${MALEJA_COLORS.primary}`,
+      borderRadius: "6px",
+      padding: "4px 8px",
+      fontSize: "14px",
+      fontWeight: "600",
+      boxShadow: `0 2px 8px ${MALEJA_COLORS.shadow}`,
+    });
+  }
+}
+
+// ================================
+// 📱 OPTIMIZACIÓN MÓVIL
+// ================================
+function optimizeMobile() {
+  if (window.innerWidth <= 768) {
+    Reveal.configure({
+      controls: true,
+      touch: true,
+      embedded: false,
+      controlsLayout: "bottom-right",
+    });
+
+    const controls = document.querySelector(".reveal .controls");
     if (controls) {
-        // Asegurar visibilidad
-        controls.style.display = 'block';
-        controls.style.visibility = 'visible';
-        controls.style.opacity = '1';
-        
-        // Aplicar estilos a todos los botones
-        controls.querySelectorAll('button').forEach(button => {
-            Object.assign(button.style, {
-                background: MALEJA_COLORS.darkAlt,
-                border: `2px solid ${MALEJA_COLORS.primary}`,
-                color: MALEJA_COLORS.light,
-                borderRadius: '8px',
-                padding: '8px',
-                transition: 'all 0.3s ease',
-                boxShadow: `0 4px 12px ${MALEJA_COLORS.shadow}`,
-                cursor: 'pointer'
-            });
-            
-            // Efectos hover
-            button.addEventListener('mouseenter', () => {
-                Object.assign(button.style, {
-                    background: MALEJA_COLORS.primary,
-                    color: MALEJA_COLORS.dark,
-                    transform: 'translateY(-2px)',
-                    boxShadow: `0 6px 16px ${MALEJA_COLORS.shadow}`
-                });
-            });
-            
-            button.addEventListener('mouseleave', () => {
-                Object.assign(button.style, {
-                    background: MALEJA_COLORS.darkAlt,
-                    color: MALEJA_COLORS.light,
-                    transform: 'translateY(0)',
-                    boxShadow: `0 4px 12px ${MALEJA_COLORS.shadow}`
-                });
-            });
-        });
+      controls.style.transform = "scale(1.2)";
+      controls.style.bottom = "20px";
+      controls.style.right = "20px";
     }
-    
-    // Estilizar barra de progreso
-    const progress = document.querySelector('.reveal .progress');
-    if (progress) {
-        Object.assign(progress.style, {
-            height: '4px',
-            background: MALEJA_COLORS.darkAlt,
-            borderRadius: '2px'
-        });
-        
-        const progressBar = progress.querySelector('span');
-        if (progressBar) {
-            Object.assign(progressBar.style, {
-                background: `linear-gradient(90deg, ${MALEJA_COLORS.primary}, ${MALEJA_COLORS.secondary})`,
-                boxShadow: `0 0 10px ${MALEJA_COLORS.shadow}`,
-                borderRadius: '2px'
-            });
-        }
-    }
-    
-    // Estilizar número de slide
-    const slideNumber = document.querySelector('.reveal .slide-number');
-    if (slideNumber) {
-        Object.assign(slideNumber.style, {
-            background: MALEJA_COLORS.darkAlt,
-            color: MALEJA_COLORS.primary,
-            border: `1px solid ${MALEJA_COLORS.primary}`,
-            borderRadius: '6px',
-            padding: '4px 8px',
-            fontSize: '14px',
-            fontWeight: '600',
-            boxShadow: `0 2px 8px ${MALEJA_COLORS.shadow}`
-        });
-    }
+
+    const progress = document.querySelector(".reveal .progress");
+    if (progress) progress.style.height = "6px";
+  }
 }
 
-// Función para mejorar la experiencia móvil
-function optimizeForMobile() {
-    if (window.innerWidth <= 768) {
-        // Configuración específica para móvil
-        Reveal.configure({
-            controls: true,
-            touch: true,
-            embedded: false,
-            controlsLayout: 'bottom-right'
-        });
-        
-        // Ajustar tamaño de controles en móvil
-        const controls = document.querySelector('.reveal .controls');
-        if (controls) {
-            controls.style.transform = 'scale(1.2)';
-            controls.style.bottom = '20px';
-            controls.style.right = '20px';
-        }
-        
-        // Hacer la barra de progreso más visible en móvil
-        const progress = document.querySelector('.reveal .progress');
-        if (progress) {
-            progress.style.height = '6px';
-        }
-    }
+// ================================
+// 🧠 LOGGING Y ANALYTICS
+// ================================
+function logSlide(event) {
+  const current = event.indexh + 1;
+  const total = Reveal.getTotalSlides();
+  console.log(`🎬 MALEJA Pitch — Slide ${current}/${total}`);
 }
 
-// Función para logging simplificado (útil para analytics futuras)
-function logSlideChange(slideInfo) {
-    const currentSlide = slideInfo.indexh + 1;
-    const totalSlides = Reveal.getTotalSlides();
-    
-    console.log(`MALEJA PMV - Slide ${currentSlide}/${totalSlides}`);
-    
-    // Aquí podrías agregar analytics de Google, Facebook Pixel, etc.
-    // Ejemplo: gtag('event', 'slide_view', { slide_number: currentSlide });
-}
-
-// Event listeners principales
-Reveal.on('ready', (event) => {
-    console.log('🎯 Presentación MALEJA Calzado iniciada');
-    applyMALEJABranding();
-    optimizeForMobile();
-    
-    // Log del slide inicial
-    logSlideChange(event);
-});
-
-Reveal.on('slidechanged', (event) => {
-    logSlideChange(event);
-    
-    // Re-aplicar estilos si es necesario (por si algún slide los modifica)
-    applyMALEJABranding();
-});
-
-// Optimización para diferentes tamaños de pantalla
-window.addEventListener('resize', () => {
-    optimizeForMobile();
-    applyMALEJABranding();
-});
-
-// Inicialización al cargar la página
-document.addEventListener('DOMContentLoaded', () => {
-    // Timeout para asegurar que Reveal.js esté completamente cargado
-    setTimeout(() => {
-        applyMALEJABranding();
-        optimizeForMobile();
-    }, 100);
-});
-
-// Función de utilidad para alternar vista overview (útil para debugging)
+// ================================
+// 🧭 SHORTCUTS DE UTILIDAD
+// ================================
 function toggleOverview() {
-    if (Reveal.isOverview()) {
-        Reveal.toggleOverview(false);
-    } else {
-        Reveal.toggleOverview(true);
-    }
+  Reveal.toggleOverview();
 }
 
-// Atajo de teclado personalizado (O para overview)
-document.addEventListener('keydown', (event) => {
-    if (event.key.toLowerCase() === 'o' && !event.ctrlKey && !event.metaKey) {
-        toggleOverview();
-    }
+// ================================
+// ⚡ EVENTOS PRINCIPALES
+// ================================
+Reveal.on("ready", (event) => {
+  console.log("✅ Presentación MALEJA Calzado lista");
+  applyBranding();
+  optimizeMobile();
+  logSlide(event);
+
+  // Inicializar Mermaid si existe
+  if (window.mermaid) {
+    mermaid.initialize({
+      startOnLoad: true,
+      securityLevel: "loose",
+      theme: "base",
+    });
+  }
+
+  // Inicializar Lightbox (por si no lo hace index.html)
+  if (typeof initLightbox === "function") {
+    initLightbox();
+  } else if (typeof PresentationLightbox === "function") {
+    window.presentationLightbox = new PresentationLightbox();
+  }
 });
 
-// Exportar funciones para uso global si es necesario
+Reveal.on("slidechanged", (event) => {
+  applyBranding();
+  logSlide(event);
+});
+
+// ================================
+// 🪄 EVENTOS DE VENTANA
+// ================================
+window.addEventListener("resize", () => {
+  optimizeMobile();
+  applyBranding();
+});
+
+// Tecla “O” = vista general
+document.addEventListener("keydown", (e) => {
+  if (e.key.toLowerCase() === "o" && !e.ctrlKey && !e.metaKey) {
+    toggleOverview();
+  }
+});
+
+// ================================
+// 🌐 EXPORTAR FUNCIONES GLOBALES
+// ================================
 window.MALEJA_Presentation = {
-    colors: MALEJA_COLORS,
-    toggleOverview: toggleOverview,
-    applyBranding: applyMALEJABranding,
-    getCurrentSlide: () => Reveal.getIndices().h + 1,
-    getTotalSlides: () => Reveal.getTotalSlides()
+  colors: MALEJA_COLORS,
+  applyBranding,
+  optimizeMobile,
+  toggleOverview,
+  getCurrentSlide: () => Reveal.getIndices().h + 1,
+  getTotalSlides: () => Reveal.getTotalSlides(),
 };
