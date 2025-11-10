@@ -189,22 +189,24 @@
 
 .btn {
   background: linear-gradient(135deg, var(--secondary-color), #e8c455);
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
   border-color: var(--secondary-color);
 }
 .btn:hover {
   background: linear-gradient(135deg, #e8c455, var(--secondary-color));
   transform: translateY(-2px);
+  color: var(--primary-color) !important;
 }
 
 .btn-outline {
   background: linear-gradient(135deg, var(--accent-color), #20c75a);
-  color: white;
+  color: white !important;
   border: 2px solid var(--accent-color);
 }
 .btn-outline:hover {
   background: linear-gradient(135deg, #20c75a, #1aab56);
   transform: translateY(-2px);
+  color: white !important;
 }
 
 /* ===================================== */
