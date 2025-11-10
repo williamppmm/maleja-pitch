@@ -5,40 +5,50 @@
   <title>Video Pitch — PMV MALEJA Calzado</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- SEO/Accesibilidad básica -->
-  <meta name="description" content="Video Pitch del PMV MALEJA Calzado — Tecnología en ADSO (SENA)" />
+  <!-- SEO/Accesibilidad mínima -->
+  <meta name="description" content="Presentación del PMV MALEJA Calzado — Tecnología en ADSO (SENA)" />
   <meta name="author" content="William Pérez Muñoz" />
   <meta name="theme-color" content="#d4aa3a" />
   <meta name="robots" content="noindex, nofollow" />
 
-  <!-- Reveal.js -->
+  <!-- Reveal.js (CDN) -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css" as="style" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css" as="style" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css">
 
-  <!-- Mermaid.js -->
+  <!-- Mermaid (diagramas) -->
   <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+  <!-- Chart.js (gráficos financieros) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-  <!-- CSS personalizado -->
+  <!-- CSS propio -->
+  <link rel="preload" href="styles.css" as="style" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Preload scripts propios -->
+  <link rel="preload" href="presentation.js" as="script" />
+  <link rel="preload" href="lightbox.js" as="script" />
 </head>
 <body>
 
 <div class="reveal">
   <div class="slides">
 
-    <!-- 0. INTRO -->
+    <!-- 0. INTRO: SENA + MALEJA -->
     <section class="opening-slide" data-transition="fade">
       <div class="slide-wrapper opening-wrapper" style="text-align:center;">
         <img src="assets/images/logo-sena-2025.png" alt="Logo del SENA" class="logo-sena" width="300" height="300" />
         <h2 class="opening-title">Tecnología en Análisis y Desarrollo de Software</h2>
         <p class="opening-subtitle">Video Pitch — PMV MALEJA Calzado</p>
         <div class="logos" style="justify-content:center;margin-top:12px;">
-          <img src="assets/images/logo-maleja.png" alt="Logo MALEJA Calzado" style="height:70px;" />
+          <img src="assets/images/logo-maleja.png" alt="Logo MALEJA Calzado" class="logo" style="height:70px;" />
         </div>
         <div style="margin-top:12px;">
           <span class="tag">Cali, Colombia</span>
@@ -53,16 +63,16 @@
       <h2>1. Introducción y problema</h2>
       <div class="grid-2">
         <div class="box">
-          <h3>Contexto</h3>
-          <p>Más del <strong>70 %</strong> de las consultas de compra son móviles; se pierden si el catálogo no carga rápido o no tiene conexión directa con WhatsApp.</p>
-          <p class="caption">Microempresas de calzado en Cali que dependen de redes sociales.</p>
+          <h3>Gancho</h3>
+          <p>Más del <strong>70 %</strong> de consultas de compra son móviles; se pierden si el catálogo no carga o no conecta con WhatsApp.</p>
+          <p class="caption">Contexto: microempresas de calzado en Cali que dependen de redes sociales.</p>
         </div>
         <div class="box">
           <h3>Dolor del cliente</h3>
           <ul>
-            <li>Fotos sueltas sin filtros ni orden.</li>
-            <li>Sin presencia en buscadores.</li>
-            <li>Respuestas lentas → menos ventas.</li>
+            <li>Fotos sueltas sin filtros ni orden</li>
+            <li>Sin presencia en buscadores</li>
+            <li>Respuesta lenta → menos ventas</li>
           </ul>
         </div>
       </div>
@@ -74,47 +84,49 @@
       <div class="grid-2">
         <div class="box">
           <h3>Qué es</h3>
-          <p>Una plataforma web ligera y adaptable que conecta el catálogo con WhatsApp en un solo toque.</p>
+          <p>Plataforma web ligera y adaptable que conecta el catálogo con WhatsApp en un toque.</p>
           <ul>
-            <li>Catálogo responsive con filtros y galería ampliada.</li>
-            <li>Botón “Escribir por WhatsApp” con mensaje prellenado.</li>
-            <li>Panel administrativo con CRUD.</li>
+            <li>Catálogo responsive con filtros</li>
+            <li>Galería ampliada y ficha de producto</li>
+            <li>Botón “Escribir por WhatsApp” (mensaje prellenado)</li>
+            <li>Panel administrativo sencillo (CRUD)</li>
           </ul>
         </div>
         <div class="box">
           <h3>Objetivo</h3>
           <p>Aumentar la conversión <em>navegación → chat</em> y reducir la fricción de compra.</p>
-          <div class="btns" style="margin-top:8px;">
+          <div class="btns" style="margin-top:8px">
             <a class="btn" href="https://malejacalzado.com" target="_blank" rel="noreferrer">Ver sitio</a>
-            <a class="btn-outline" href="https://wa.me/573135152530?text=Hola%2C%20vi%20tu%20presentaci%C3%B3n..." target="_blank" rel="noreferrer">Contacto</a>
+            <a class="btn-outline" href="https://wa.me/573135152530?text=Hola%2C%20vi%20tu%20presentaci%C3%B3n%20de%20MALEJA%20Calzado..." target="_blank" rel="noreferrer">Contacto</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. PROPUESTA DE VALOR -->
+    <!-- 3. PROPUESTA DE VALOR / INNOVACIÓN -->
     <section data-transition="fade">
       <h2>3. Propuesta de valor</h2>
       <div class="grid-2">
         <div class="box">
           <ul>
-            <li><strong>Mobile-first</strong> real y carga rápida.</li>
-            <li><strong>SEO</strong> on-page y analítica.</li>
-            <li><strong>Seguridad</strong> (SSL) y copias de respaldo.</li>
-            <li>Estructura lista para carrito y pagos.</li>
+            <li><strong>Mobile-first</strong> real y carga rápida</li>
+            <li><strong>SEO</strong> on-page y analítica</li>
+            <li><strong>Seguridad</strong> (SSL) y copias de respaldo</li>
+            <li>Listo para <strong>escalar</strong> a carrito/pagos</li>
           </ul>
         </div>
         <div class="box">
           <h3>Estandarización = menor costo</h3>
-          <p>Componentes reusables y buenas prácticas reducen horas y facilitan mantenimiento.</p>
+          <p>Componentes reusables (cards, filtros, galería) y buenas prácticas reducen horas y facilitan mantenimiento.</p>
         </div>
       </div>
     </section>
 
-    <!-- 4. PROCESO PRODUCTIVO (7 etapas) -->
+    <!-- 4. PROCESO PRODUCTIVO (Mermaid 7 etapas) -->
     <section data-transition="fade">
       <h2>4. Proceso productivo (7 etapas)</h2>
-      <div class="mermaid">
+      <div class="mermaid-container">
+        <div class="mermaid">
           ---
           config:
             theme: base
@@ -146,92 +158,19 @@
               style E fill:#f0f0f0,stroke:#32CD32,stroke-width:2px,color:#000
               style F fill:#32CD32,stroke:#000,stroke-width:1.5px,color:#fff
               style G fill:#000,stroke:#32CD32,stroke-width:2px,color:#32CD32
-
-        </div>
-      <p class="caption">47 horas efectivas — desarrollo, contenido y pruebas bajo estándares de seguridad y control de versiones.</p>
-    </section>
-
-    <!-- 5. PROTOTIPO -->
-    <section data-transition="fade">
-      <h2>5. Prototipo</h2>
-      <div class="grid-3">
-        <figure class="img-frame">
-          <img src="assets/images/homepage.png" alt="Homepage MALEJA" class="zoomable" data-caption="Homepage — navegación limpia y acceso al catálogo" />
-        </figure>
-        <figure class="img-frame">
-          <img src="assets/images/catalogo-filtros.png" alt="Catálogo con filtros" class="zoomable" data-caption="Catálogo — Filtros por categoría, talla y precio" />
-        </figure>
-        <figure class="img-frame">
-          <img src="assets/images/modal-producto.png" alt="Detalle de producto" class="zoomable" data-caption="Modal con botón WhatsApp" />
-        </figure>
-      </div>
-      <p class="caption">Flujo: Inicio → Filtros → Producto → WhatsApp.</p>
-    </section>
-
-    <!-- 6. FINANZAS — ESTRUCTURA -->
-    <section data-transition="fade">
-      <h2>6. Finanzas — Estructura de costos</h2>
-      <div class="grid-2">
-        <div class="box">
-          <h3>Estructura del costo unitario</h3>
-          <ul>
-            <li>Mano de obra directa: 47 horas (36 Dev, 6 Contenido, 5 QA).</li>
-            <li>Insumos: Canva Pro, hosting, backups.</li>
-            <li>CIF: Internet, energía, servicios proporcionales.</li>
-          </ul>
-          <p class="caption">Fuente: GFPI-F-144 corregido.</p>
-        </div>
-        <div class="box">
-          <img src="assets/images/fin_costos_estructura.png" alt="Estructura de costos del proyecto" class="zoomable" data-caption="Estructura de costos — M.O.D., Insumos, CIF (GFPI-F-144)" />
         </div>
       </div>
+      <p class="caption" style="margin-top:1rem;"><strong>47 horas efectivas</strong> distribuidas entre desarrollo, contenido y pruebas — Estándares de seguridad, accesibilidad y control de versiones</p>
     </section>
 
-    <!-- 7. FINANZAS — PRECIO Y MARGEN -->
+    <!-- 5. EQUIPO (Mermaid) -->
     <section data-transition="fade">
-      <h2>7. Finanzas — Precio y margen</h2>
-      <div class="grid-2">
-        <div class="box">
-          <ul>
-            <li><strong>Costo unitario:</strong> $2.181.000</li>
-            <li><strong>Precio de venta:</strong> $3.500.000</li>
-            <li><strong>Margen:</strong> 60% (markup)</li>
-            <li><strong>Capacidad:</strong> 12 proyectos/año</li>
-          </ul>
-          <p class="caption">Alineado con 47 horas y proyección real de producción.</p>
-        </div>
-        <div class="box">
-          <img src="assets/images/fin_precio_margen.png" alt="Precio y margen" class="zoomable" data-caption="Relación precio–costo y margen (GFPI-F-144)" />
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. FINANZAS — FLUJO, VPN, TIR -->
-    <section data-transition="fade">
-      <h2>8. Finanzas — Flujo, VPN y TIR</h2>
-      <div class="grid-2">
-        <div class="box">
-          <ul>
-            <li><strong>Flujo de caja:</strong> positivo.</li>
-            <li><strong>VPN:</strong> ≥ 0 (rentable).</li>
-            <li><strong>TIR:</strong> superior al costo de capital.</li>
-          </ul>
-          <p class="caption">La TIR fue corregida y validada en el GFPI-F-144 actualizado.</p>
-        </div>
-        <div class="box">
-          <img src="assets/images/fin_flujo_vpn_tir.png" alt="Flujo, VPN y TIR" class="zoomable" data-caption="Flujo de caja, VPN y TIR del GFPI-F-144 corregido" />
-        </div>
-      </div>
-    </section>
-
-    <!-- 9. EQUIPO -->
-    <section data-transition="fade">
-      <h2>9. Equipo</h2>
+      <h2>5. Equipo</h2>
       <div class="mermaid">
 %%{init: {'theme':'base','themeVariables':{
-  'primaryColor':'#000000','primaryTextColor':'#FFD700','primaryBorderColor':'#FFD700',
-  'lineColor':'#FFD700','edgeLabelBackground':'#1B1B1B',
-  'secondaryColor':'#1B1B1B','tertiaryColor':'#F5F5F5'
+'primaryColor':'#000000','primaryTextColor':'#FFD700','primaryBorderColor':'#FFD700',
+'lineColor':'#FFD700','edgeLabelBackground':'#1B1B1B',
+'secondaryColor':'#1B1B1B','tertiaryColor':'#F5F5F5'
 }}}%%
 graph TD
   P["MALEJA Calzado<br/><small>Equipo PMV — ~1 semana</small>"]:::head
@@ -252,43 +191,467 @@ graph TD
   classDef green fill:#28A745,stroke:#000,color:#fff,stroke-width:2px;
   classDef bullet fill:#1B1B1B,stroke:#FFD700,color:#FFD700,stroke-width:1px;
       </div>
-      <p class="caption">Grupo interdisciplinario y eficiente — entrega en menos de una semana laboral.</p>
+      <p class="caption" style="margin-top:1rem;">Grupo pequeño, interdisciplinario y eficiente.</p>
     </section>
 
-    <!-- 10. IMPACTO Y CIERRE -->
+    <!-- 6. PROTOTIPO (galería con Lightbox) -->
     <section data-transition="fade">
-      <h2>10. Impacto y cierre</h2>
-      <p style="text-align:center;margin-top:1.5rem;">MALEJA Calzado impulsa la digitalización de microempresas en Cali,<br>ofreciendo presencia web profesional, segura y fácil de administrar.</p>
-      <div class="btns" style="text-align:center;margin-top:1.5rem;">
-        <a class="btn" href="https://malejacalzado.com" target="_blank" rel="noreferrer">Ver PMV</a>
-        <a class="btn-outline" href="https://wa.me/573135152530?text=Hola%2C%20vi%20tu%20presentaci%C3%B3n..." target="_blank" rel="noreferrer">Contacto</a>
+      <h2>6. Prototipo</h2>
+      <div class="grid-3">
+        <figure class="img-frame">
+          <img src="assets/images/homepage.png" alt="Homepage MALEJA" class="zoomable" data-caption="Homepage — navegación limpia y acceso al catálogo" />
+        </figure>
+        <figure class="img-frame">
+          <img src="assets/images/catalogo-filtros.png" alt="Catálogo con filtros" class="zoomable" data-caption="Catálogo — Filtros por categoría, talla y precio" />
+        </figure>
+        <figure class="img-frame">
+          <img src="assets/images/modal-producto.png" alt="Detalle de producto" class="zoomable" data-caption="Modal de producto con botón WhatsApp" />
+        </figure>
       </div>
-      <p class="caption" style="text-align:center;margin-top:1.5rem;">William Pérez • ADSO — SENA • Cali, Colombia</p>
+      <p class="caption" style="margin-top:1rem;">Flujo: Inicio → Filtros → Producto → WhatsApp.</p>
+    </section>
+
+    <!-- 7. MÉTRICAS -->
+    <section data-transition="fade">
+      <h2>7. Métricas y validación</h2>
+      <div class="grid-3 kpi-grid">
+        <div class="kpi">
+          <div class="v">&gt;90%</div>
+          <div>Lighthouse (rendimiento/AA)</div>
+        </div>
+        <div class="kpi">
+          <div class="v">12/año</div>
+          <div>Cadencia objetivo</div>
+        </div>
+        <div class="kpi">
+          <div class="v">CTR ↑</div>
+          <div>Click a WhatsApp</div>
+        </div>
+      </div>
+      <p class="caption" style="margin-top:1rem;">Search Console + Analytics activos para seguimiento.</p>
+    </section>
+
+    <!-- 8. FINANZAS — ESTRUCTURA DE COSTOS (Chart.js) -->
+    <section data-transition="fade">
+      <h2>8. Finanzas — Estructura de costos</h2>
+      <div class="grid-2">
+        <div class="box">
+          <h3>Tabla base (GFPI-F-144)</h3>
+          <ul>
+            <li>Materias primas e insumos: <strong>$15.000</strong></li>
+            <li>Mano de obra directa: <strong>$2.115.000</strong></li>
+            <li>CIF: <strong>$51.000</strong></li>
+            <li><strong>Costo unitario:</strong> $2.181.000</li>
+          </ul>
+          <p class="caption" style="margin-top:1rem;">El principal componente del costo es la mano de obra especializada.</p>
+        </div>
+        <div class="box">
+          <div class="chart-container">
+            <canvas id="grafCostosEstructura" aria-label="Costo unitario por componente"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8b. FINANZAS — DETALLE MANO DE OBRA -->
+    <section data-transition="fade">
+      <h2>8. Finanzas — Detalle mano de obra</h2>
+      <div class="grid-2">
+        <div class="box">
+          <h3>Distribución por rol</h3>
+          <ul>
+            <li>Desarrollador Full-Stack: <strong>$1.620.000</strong></li>
+            <li>Operador Contenido/SEO: <strong>$270.000</strong></li>
+            <li>Control de Calidad (QA): <strong>$225.000</strong></li>
+          </ul>
+          <p class="caption" style="margin-top:1rem;">La mayor inversión está en desarrollo técnico especializado.</p>
+        </div>
+        <div class="box">
+          <div class="chart-container">
+            <canvas id="grafMODetalle" aria-label="Detalle mano de obra por rol"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. FINANZAS — PRECIO Y MARGEN (Chart.js sobre flujos) -->
+    <section data-transition="fade">
+      <h2>9. Finanzas — Precio y margen</h2>
+      <div class="grid-2">
+        <div class="box">
+          <h3>Resumen</h3>
+          <ul>
+            <li><strong>Precio:</strong> $3.500.000</li>
+            <li><strong>Margen de ganancia:</strong> 30%</li>
+            <li>Capacidad: <strong>12 proyectos/año</strong></li>
+          </ul>
+          <p class="caption">Se evidencia la relación ingreso/egreso proyectada a 5 años.</p>
+        </div>
+        <div class="box">
+          <div class="chart-container">
+            <canvas id="grafFlujoIE" aria-label="Flujo proyectado Ingresos vs Egresos"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9b. FINANZAS — UTILIDAD Y FLUJO DE CAJA -->
+    <section data-transition="fade">
+      <h2>9. Finanzas — Utilidad y flujo de caja</h2>
+      <div class="grid-2">
+        <div class="box">
+          <div class="chart-container">
+            <canvas id="grafFlujoUtilidad" aria-label="Utilidad neta y Flujo neto"></canvas>
+          </div>
+        </div>
+        <div class="box">
+          <div class="chart-container">
+            <canvas id="grafSaldoFinal" aria-label="Saldo final de caja"></canvas>
+          </div>
+        </div>
+      </div>
+      <p class="caption" style="margin-top:1rem;">Proyección de rentabilidad creciente con acumulación de capital de trabajo.</p>
+    </section>
+
+    <!-- 10. FINANZAS — INDICADORES (VPN / TIR) -->
+    <section data-transition="fade">
+      <h2>10. Finanzas — Indicadores (VPN / TIR)</h2>
+      <div class="grid-2">
+        <div class="box">
+          <h3>Indicadores clave (GFPI-F-144)</h3>
+          <ul>
+            <li><strong>Costo de capital:</strong> 15%</li>
+            <li><strong>VPN:</strong> $2.467.066</li>
+            <li><strong>TIR:</strong> 24%</li>
+            <li><strong>VA:</strong> $9.183.066</li>
+            <li><strong>VPI:</strong> $157.737.094</li>
+            <li><strong>VPE:</strong> $145.608.881</li>
+          </ul>
+          <p class="caption" style="margin-top:1rem;"><strong>Proyecto viable:</strong> TIR superior al costo de capital y VPN positivo.</p>
+        </div>
+        <div class="box">
+          <div class="chart-container">
+            <canvas id="grafIndicadoresPct" aria-label="Indicadores porcentuales"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10b. FINANZAS — VALORES PRESENTES -->
+    <section data-transition="fade">
+      <h2>10. Finanzas — Valores presentes</h2>
+      <div class="box chart-container">
+        <canvas id="grafIndicadoresValores" aria-label="Indicadores de viabilidad valores"></canvas>
+      </div>
+      <p class="caption" style="margin-top:1rem;">El Valor Actual Neto (VPN) positivo confirma la rentabilidad del proyecto.</p>
+    </section>
+
+    <!-- 11. IMPACTO Y CIERRE -->
+    <section data-transition="fade">
+      <div style="text-align:center;">
+        <h2 style="border-bottom:none;display:inline-block;border-bottom:3px solid var(--secondary-color);padding-bottom:0.4rem;">11. Impacto y cierre</h2>
+      </div>
+      <p style="text-align:center;margin-top:1.5rem;">Digitalización accesible para microempresas; presencia web profesional, segura y medible con conexión directa a WhatsApp.</p>
+      <div class="btns" style="margin-top:1.5rem;">
+        <a class="btn" href="https://malejacalzado.com" target="_blank" rel="noreferrer">Ver PMV</a>
+        <a class="btn-outline" href="https://wa.me/573135152530?text=Hola%2C%20vi%20tu%20presentaci%C3%B3n%20de%20MALEJA%20Calzado..." target="_blank" rel="noreferrer">Contacto</a>
+      </div>
+      <p class="caption" style="margin-top:1.5rem;">William Pérez • ADSO — SENA • Cali, Colombia</p>
     </section>
 
   </div>
 </div>
 
-<!-- Reveal.js -->
+<!-- Reveal.js Core -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
 
-<!-- Scripts personalizados -->
+<!-- Scripts propios -->
 <script src="presentation.js"></script>
 <script src="lightbox.js"></script>
 
-<!-- Inicialización Mermaid + Lightbox -->
+<!-- Inicialización coordinada Mermaid + Reveal + Chart.js + Lightbox -->
 <script>
+  // Mermaid
   if (window.mermaid) {
     mermaid.initialize({ startOnLoad: true, securityLevel: 'loose' });
   }
 
+  // Datos financieros (exactos a tu GFPI-F-144)
+  const MALEJA_DATA = {
+    costos: {
+      mp: 15000,
+      mo: 2115000,
+      cif: 51000,
+      mo_roles: {
+        dev: 1620000,
+        contenido: 270000,
+        qa: 225000
+      }
+    },
+    flujo: {
+      years: ['Año 1','Año 2','Año 3','Año 4','Año 5'],
+      ingresos: [34779680, 39787954, 46790634, 55474975, 67568520],
+      egresos:  [34379907, 39222104, 44713636, 50176176, 56252493],
+      utilidad: [399773, 424387, 1557748, 3974100, 10495445],
+      flujoNeto: [399773, 424387, 1557748, 3974100, 10495445],
+      saldoFinal: [399773, 824160, 2381908, 6356008, 16851453]
+    },
+    indicadores: {
+      valores: { VA: 9183066, VPN: 2467066, VPI: 157737094, VPE: 145608881, 'Costos Inv. Inicial': 152324881 },
+      porcentajes: { 'Costo de capital': 15, 'TIR': 24 }
+    },
+    colors: { gold: '#d4aa3a', green: '#25d366', black: '#1a1a1a', gray: '#666' }
+  };
+
+  function mkChart(id, cfg) {
+    const el = document.getElementById(id);
+    if (!el || !window.Chart) return null;
+    return new Chart(el.getContext('2d'), cfg);
+  }
+
+  function buildCharts() {
+    const C = MALEJA_DATA.colors;
+
+    // 8 — Costos: estructura
+    mkChart('grafCostosEstructura', {
+      type: 'bar',
+      data: {
+        labels: ['Materias primas', 'Mano de obra', 'CIF'],
+        datasets: [{
+          label: 'COP',
+          data: [MALEJA_DATA.costos.mp, MALEJA_DATA.costos.mo, MALEJA_DATA.costos.cif],
+          backgroundColor: [C.black, C.gold, C.green],
+          borderColor: C.black, borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 1.4,
+        layout: {
+          padding: {
+            left: 10,
+            right: 10,
+            top: 10,
+            bottom: 10
+          }
+        },
+        plugins: {
+          legend: { display: false },
+          title: { display: true, text: 'Costo unitario por componente (COP)', font: { size: 14 } }
+        },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+
+    // 8 — Costos: MO detalle
+    mkChart('grafMODetalle', {
+      type: 'bar',
+      data: {
+        labels: ['Dev Full-Stack', 'Contenido (SEO)', 'QA'],
+        datasets: [{
+          label: 'COP',
+          data: [MALEJA_DATA.costos.mo_roles.dev, MALEJA_DATA.costos.mo_roles.contenido, MALEJA_DATA.costos.mo_roles.qa],
+          backgroundColor: [C.gold, C.black, C.green],
+          borderColor: C.black, borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 1.4,
+        layout: {
+          padding: {
+            left: 10,
+            right: 10,
+            top: 10,
+            bottom: 10
+          }
+        },
+        plugins: {
+          legend: { display: false },
+          title: { display: true, text: 'Mano de obra por rol (COP)', font: { size: 14 } }
+        },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+
+    // 9 — Flujo: Ingresos vs Egresos
+    mkChart('grafFlujoIE', {
+      type: 'line',
+      data: {
+        labels: MALEJA_DATA.flujo.years,
+        datasets: [
+          { label: 'Ingresos', data: MALEJA_DATA.flujo.ingresos, borderColor: C.green, backgroundColor: 'rgba(37,211,102,0.1)', fill: true, tension: 0.3, borderWidth: 2 },
+          { label: 'Egresos',  data: MALEJA_DATA.flujo.egresos,  borderColor: C.gold, backgroundColor: 'rgba(212,170,58,0.1)', fill: true, tension: 0.3, borderWidth: 2 }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 1.4,
+        layout: {
+          padding: {
+            left: 10,
+            right: 10,
+            top: 10,
+            bottom: 10
+          }
+        },
+        plugins: {
+          title: { display: true, text: 'Flujo proyectado: Ingresos vs Egresos (COP)', font: { size: 14 } },
+          legend: { position: 'top' }
+        }
+      }
+    });
+
+    // 9 — Flujo: Utilidad neta y Flujo neto
+    mkChart('grafFlujoUtilidad', {
+      type: 'line',
+      data: {
+        labels: MALEJA_DATA.flujo.years,
+        datasets: [
+          { label: 'Utilidad neta', data: MALEJA_DATA.flujo.utilidad, borderColor: C.gold, backgroundColor: 'rgba(212,170,58,0.1)', fill: true, tension: 0.3, borderWidth: 2 },
+          { label: 'Flujo neto',    data: MALEJA_DATA.flujo.flujoNeto, borderColor: C.black, backgroundColor: 'rgba(26,26,26,0.05)', fill: true, tension: 0.3, borderWidth: 2 }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 1.4,
+        layout: {
+          padding: {
+            left: 10,
+            right: 10,
+            top: 10,
+            bottom: 10
+          }
+        },
+        plugins: {
+          title: { display: true, text: 'Utilidad neta y Flujo neto (COP)', font: { size: 14 } },
+          legend: { position: 'top' }
+        }
+      }
+    });
+
+    // 9 — Flujo: Saldo final
+    mkChart('grafSaldoFinal', {
+      type: 'line',
+      data: {
+        labels: MALEJA_DATA.flujo.years,
+        datasets: [{
+          label: 'Saldo final',
+          data: MALEJA_DATA.flujo.saldoFinal,
+          borderColor: C.black,
+          backgroundColor: 'rgba(26,26,26,0.1)',
+          fill: true,
+          tension: 0.3,
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 1.4,
+        layout: {
+          padding: {
+            left: 10,
+            right: 10,
+            top: 10,
+            bottom: 10
+          }
+        },
+        plugins: {
+          title: { display: true, text: 'Saldo final de caja (COP)', font: { size: 14 } },
+          legend: { position: 'top' }
+        }
+      }
+    });
+
+    // 10 — Indicadores: valores (COP)
+    mkChart('grafIndicadoresValores', {
+      type: 'bar',
+      data: {
+        labels: Object.keys(MALEJA_DATA.indicadores.valores),
+        datasets: [{
+          label: 'COP',
+          data: Object.values(MALEJA_DATA.indicadores.valores),
+          backgroundColor: [C.green, C.gold, C.black, '#333', '#555'],
+          borderColor: C.black,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 1.8,
+        layout: {
+          padding: {
+            left: 10,
+            right: 20,
+            top: 10,
+            bottom: 10
+          }
+        },
+        plugins: {
+          legend: { display: false },
+          title: { display: true, text: 'Indicadores de viabilidad (COP)', font: { size: 14 } }
+        },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+
+    // 10 — Indicadores: porcentajes
+    mkChart('grafIndicadoresPct', {
+      type: 'bar',
+      data: {
+        labels: Object.keys(MALEJA_DATA.indicadores.porcentajes),
+        datasets: [{
+          label: '%',
+          data: Object.values(MALEJA_DATA.indicadores.porcentajes),
+          backgroundColor: [C.black, C.green],
+          borderColor: C.black,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 1.4,
+        layout: {
+          padding: {
+            left: 10,
+            right: 10,
+            top: 10,
+            bottom: 10
+          }
+        },
+        plugins: {
+          legend: { display: false },
+          title: { display: true, text: 'Indicadores porcentuales', font: { size: 14 } }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { callback: v => v + '%' }
+          }
+        }
+      }
+    });
+  }
+
+  // Reveal listo: construir gráficos y activar lightbox
   if (window.Reveal) {
     Reveal.on('ready', () => {
+      try { buildCharts(); } catch (e) { console.error('Chart init error', e); }
       if (typeof initLightbox === 'function') initLightbox();
+      else if (typeof PresentationLightbox === 'function') window.presentationLightbox = new PresentationLightbox();
     });
   } else {
     document.addEventListener('DOMContentLoaded', () => {
+      try { buildCharts(); } catch (e) { console.error('Chart init error', e); }
       if (typeof initLightbox === 'function') initLightbox();
+      else if (typeof PresentationLightbox === 'function') window.presentationLightbox = new PresentationLightbox();
     });
   }
 </script>

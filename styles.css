@@ -83,8 +83,9 @@
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: stretch;
+  max-width: 100%;
 }
 
 .grid-3 {
@@ -100,6 +101,8 @@
   box-shadow: var(--shadow);
   border: 1px solid rgba(220, 220, 220, 0.5);
   transition: var(--transition);
+  max-width: 100%;
+  overflow: hidden;
 }
 .box:hover {
   transform: translateY(-1px);
@@ -312,6 +315,61 @@
 }
 
 /* ===================================== */
+/* GRÁFICOS CHART.JS */
+/* ===================================== */
+
+.chart-container {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0.5rem;
+}
+
+.chart-container canvas {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Ajuste específico para gráficos en grid-2 */
+.grid-2 .chart-container {
+  height: 350px;
+}
+
+/* Ajuste para gráficos solos de ancho completo (cuando box Y chart-container están juntos) */
+.box.chart-container {
+  height: 450px;
+  padding: 1rem;
+}
+
+/* Cuando chart-container está DENTRO de un box (anidado), reducir padding del box */
+.box:has(> .chart-container) {
+  padding: 1rem;
+}
+
+/* Gráficos anidados dentro de box (no los que son box.chart-container) */
+.box > .chart-container {
+  padding: 0.25rem;
+  height: 350px;
+}
+
+/* Prevenir desbordamiento en slides de Reveal */
+.reveal .slides section {
+  overflow: hidden;
+}
+
+.reveal .slides section .grid-2 {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* ===================================== */
 /* RESPONSIVE */
 /* ===================================== */
 
@@ -323,6 +381,19 @@
   .reveal h2 { font-size: 1.4rem; }
   .reveal h3 { font-size: 1.2rem; }
   .highlight-box { font-size: 0.95rem; padding: 1rem; }
+
+  /* Ajustes para gráficos en móvil */
+  .chart-container {
+    height: 300px;
+  }
+
+  .grid-2 .chart-container {
+    height: 280px;
+  }
+
+  .box.chart-container {
+    height: 350px;
+  }
 }
 
 /* 1) Accesibilidad: foco visible en el botón de cierre del lightbox */
