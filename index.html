@@ -5,19 +5,17 @@
   <title>Video Pitch — PMV MALEJA Calzado</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- SEO/Accesibilidad mínima -->
-  <meta name="description" content="Presentación del PMV MALEJA Calzado — Tecnología en ADSO (SENA)" />
+  <!-- SEO/Accesibilidad básica -->
+  <meta name="description" content="Video Pitch del PMV MALEJA Calzado — Tecnología en ADSO (SENA)" />
   <meta name="author" content="William Pérez Muñoz" />
   <meta name="theme-color" content="#d4aa3a" />
   <meta name="robots" content="noindex, nofollow" />
 
-  <!-- Reveal.js (CDN) -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css" as="style" />
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css" as="style" />
+  <!-- Reveal.js -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css">
 
-  <!-- Mermaid (para diagramas) -->
+  <!-- Mermaid.js -->
   <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 
   <!-- Fuentes -->
@@ -25,27 +23,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-  <!-- CSS propio -->
-  <link rel="preload" href="styles.css" as="style" />
+  <!-- CSS personalizado -->
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Preload scripts propios -->
-  <link rel="preload" href="presentation.js" as="script" />
-  <link rel="preload" href="lightbox.js" as="script" />
 </head>
 <body>
 
 <div class="reveal">
   <div class="slides">
 
-    <!-- INTRO: SENA + MALEJA -->
+    <!-- 0. INTRO -->
     <section class="opening-slide" data-transition="fade">
       <div class="slide-wrapper opening-wrapper" style="text-align:center;">
         <img src="assets/images/logo-sena-2025.png" alt="Logo del SENA" class="logo-sena" width="300" height="300" />
         <h2 class="opening-title">Tecnología en Análisis y Desarrollo de Software</h2>
         <p class="opening-subtitle">Video Pitch — PMV MALEJA Calzado</p>
         <div class="logos" style="justify-content:center;margin-top:12px;">
-          <img src="assets/images/logo-maleja.png" alt="Logo MALEJA Calzado" class="logo" style="height:70px;" />
+          <img src="assets/images/logo-maleja.png" alt="Logo MALEJA Calzado" style="height:70px;" />
         </div>
         <div style="margin-top:12px;">
           <span class="tag">Cali, Colombia</span>
@@ -60,16 +53,16 @@
       <h2>1. Introducción y problema</h2>
       <div class="grid-2">
         <div class="box">
-          <h3>Gancho</h3>
-          <p>Más del <strong>70 %</strong> de consultas de compra son móviles; se pierden si el catálogo no carga o no conecta con WhatsApp.</p>
-          <p class="caption">Contexto: microempresas de calzado en Cali que dependen de redes sociales.</p>
+          <h3>Contexto</h3>
+          <p>Más del <strong>70 %</strong> de las consultas de compra son móviles; se pierden si el catálogo no carga rápido o no tiene conexión directa con WhatsApp.</p>
+          <p class="caption">Microempresas de calzado en Cali que dependen de redes sociales.</p>
         </div>
         <div class="box">
           <h3>Dolor del cliente</h3>
           <ul>
-            <li>Fotos sueltas sin filtros ni orden</li>
-            <li>Sin presencia en buscadores</li>
-            <li>Respuesta lenta → menos ventas</li>
+            <li>Fotos sueltas sin filtros ni orden.</li>
+            <li>Sin presencia en buscadores.</li>
+            <li>Respuestas lentas → menos ventas.</li>
           </ul>
         </div>
       </div>
@@ -81,49 +74,47 @@
       <div class="grid-2">
         <div class="box">
           <h3>Qué es</h3>
-          <p>Plataforma web ligera y adaptable que conecta el catálogo con WhatsApp en un toque.</p>
+          <p>Una plataforma web ligera y adaptable que conecta el catálogo con WhatsApp en un solo toque.</p>
           <ul>
-            <li>Catálogo responsive con filtros</li>
-            <li>Galería ampliada y ficha de producto</li>
-            <li>Botón “Escribir por WhatsApp” (mensaje prellenado)</li>
-            <li>Panel administrativo sencillo (CRUD)</li>
+            <li>Catálogo responsive con filtros y galería ampliada.</li>
+            <li>Botón “Escribir por WhatsApp” con mensaje prellenado.</li>
+            <li>Panel administrativo con CRUD.</li>
           </ul>
         </div>
         <div class="box">
           <h3>Objetivo</h3>
           <p>Aumentar la conversión <em>navegación → chat</em> y reducir la fricción de compra.</p>
-          <div class="btns" style="margin-top:8px">
+          <div class="btns" style="margin-top:8px;">
             <a class="btn" href="https://malejacalzado.com" target="_blank" rel="noreferrer">Ver sitio</a>
-            <a class="btn-outline" href="https://wa.me/573135152530?text=Hola%2C%20vi%20tu%20presentaci%C3%B3n%20de%20MALEJA%20Calzado..." target="_blank" rel="noreferrer">Contacto</a>
+            <a class="btn-outline" href="https://wa.me/573135152530?text=Hola%2C%20vi%20tu%20presentaci%C3%B3n..." target="_blank" rel="noreferrer">Contacto</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. PROPUESTA DE VALOR / INNOVACIÓN -->
+    <!-- 3. PROPUESTA DE VALOR -->
     <section data-transition="fade">
       <h2>3. Propuesta de valor</h2>
       <div class="grid-2">
         <div class="box">
           <ul>
-            <li><strong>Mobile-first</strong> real y carga rápida</li>
-            <li><strong>SEO</strong> on-page y analítica</li>
-            <li><strong>Seguridad</strong> (SSL) y copias de respaldo</li>
-            <li>Listo para <strong>escalar</strong> a carrito/pagos</li>
+            <li><strong>Mobile-first</strong> real y carga rápida.</li>
+            <li><strong>SEO</strong> on-page y analítica.</li>
+            <li><strong>Seguridad</strong> (SSL) y copias de respaldo.</li>
+            <li>Estructura lista para carrito y pagos.</li>
           </ul>
         </div>
         <div class="box">
           <h3>Estandarización = menor costo</h3>
-          <p>Componentes reusables (cards, filtros, galería) y buenas prácticas reducen horas y facilitan mantenimiento.</p>
+          <p>Componentes reusables y buenas prácticas reducen horas y facilitan mantenimiento.</p>
         </div>
       </div>
     </section>
 
-    <!-- 4. PROCESO PRODUCTIVO (Mermaid 7 etapas) -->
+    <!-- 4. PROCESO PRODUCTIVO (7 etapas) -->
     <section data-transition="fade">
       <h2>4. Proceso productivo (7 etapas)</h2>
-      <div class="mermaid-container">
-        <div class="mermaid">
+      <div class="mermaid">
           ---
           config:
             theme: base
@@ -157,18 +148,90 @@
               style G fill:#000,stroke:#32CD32,stroke-width:2px,color:#32CD32
 
         </div>
-      </div>
-      <p class="caption" style="margin-top:1rem;"><strong>47 horas efectivas</strong> distribuidas entre desarrollo, contenido y pruebas — Bajo estándares de seguridad, accesibilidad y control de versiones</p>
+      <p class="caption">47 horas efectivas — desarrollo, contenido y pruebas bajo estándares de seguridad y control de versiones.</p>
     </section>
 
-    <!-- 5. EQUIPO (Mermaid) -->
+    <!-- 5. PROTOTIPO -->
     <section data-transition="fade">
-      <h2>5. Equipo</h2>
+      <h2>5. Prototipo</h2>
+      <div class="grid-3">
+        <figure class="img-frame">
+          <img src="assets/images/homepage.png" alt="Homepage MALEJA" class="zoomable" data-caption="Homepage — navegación limpia y acceso al catálogo" />
+        </figure>
+        <figure class="img-frame">
+          <img src="assets/images/catalogo-filtros.png" alt="Catálogo con filtros" class="zoomable" data-caption="Catálogo — Filtros por categoría, talla y precio" />
+        </figure>
+        <figure class="img-frame">
+          <img src="assets/images/modal-producto.png" alt="Detalle de producto" class="zoomable" data-caption="Modal con botón WhatsApp" />
+        </figure>
+      </div>
+      <p class="caption">Flujo: Inicio → Filtros → Producto → WhatsApp.</p>
+    </section>
+
+    <!-- 6. FINANZAS — ESTRUCTURA -->
+    <section data-transition="fade">
+      <h2>6. Finanzas — Estructura de costos</h2>
+      <div class="grid-2">
+        <div class="box">
+          <h3>Estructura del costo unitario</h3>
+          <ul>
+            <li>Mano de obra directa: 47 horas (36 Dev, 6 Contenido, 5 QA).</li>
+            <li>Insumos: Canva Pro, hosting, backups.</li>
+            <li>CIF: Internet, energía, servicios proporcionales.</li>
+          </ul>
+          <p class="caption">Fuente: GFPI-F-144 corregido.</p>
+        </div>
+        <div class="box">
+          <img src="assets/images/fin_costos_estructura.png" alt="Estructura de costos del proyecto" class="zoomable" data-caption="Estructura de costos — M.O.D., Insumos, CIF (GFPI-F-144)" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FINANZAS — PRECIO Y MARGEN -->
+    <section data-transition="fade">
+      <h2>7. Finanzas — Precio y margen</h2>
+      <div class="grid-2">
+        <div class="box">
+          <ul>
+            <li><strong>Costo unitario:</strong> $2.181.000</li>
+            <li><strong>Precio de venta:</strong> $3.500.000</li>
+            <li><strong>Margen:</strong> 60% (markup)</li>
+            <li><strong>Capacidad:</strong> 12 proyectos/año</li>
+          </ul>
+          <p class="caption">Alineado con 47 horas y proyección real de producción.</p>
+        </div>
+        <div class="box">
+          <img src="assets/images/fin_precio_margen.png" alt="Precio y margen" class="zoomable" data-caption="Relación precio–costo y margen (GFPI-F-144)" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. FINANZAS — FLUJO, VPN, TIR -->
+    <section data-transition="fade">
+      <h2>8. Finanzas — Flujo, VPN y TIR</h2>
+      <div class="grid-2">
+        <div class="box">
+          <ul>
+            <li><strong>Flujo de caja:</strong> positivo.</li>
+            <li><strong>VPN:</strong> ≥ 0 (rentable).</li>
+            <li><strong>TIR:</strong> superior al costo de capital.</li>
+          </ul>
+          <p class="caption">La TIR fue corregida y validada en el GFPI-F-144 actualizado.</p>
+        </div>
+        <div class="box">
+          <img src="assets/images/fin_flujo_vpn_tir.png" alt="Flujo, VPN y TIR" class="zoomable" data-caption="Flujo de caja, VPN y TIR del GFPI-F-144 corregido" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. EQUIPO -->
+    <section data-transition="fade">
+      <h2>9. Equipo</h2>
       <div class="mermaid">
 %%{init: {'theme':'base','themeVariables':{
-'primaryColor':'#000000','primaryTextColor':'#FFD700','primaryBorderColor':'#FFD700',
-'lineColor':'#FFD700','edgeLabelBackground':'#1B1B1B',
-'secondaryColor':'#1B1B1B','tertiaryColor':'#F5F5F5'
+  'primaryColor':'#000000','primaryTextColor':'#FFD700','primaryBorderColor':'#FFD700',
+  'lineColor':'#FFD700','edgeLabelBackground':'#1B1B1B',
+  'secondaryColor':'#1B1B1B','tertiaryColor':'#F5F5F5'
 }}}%%
 graph TD
   P["MALEJA Calzado<br/><small>Equipo PMV — ~1 semana</small>"]:::head
@@ -189,120 +252,43 @@ graph TD
   classDef green fill:#28A745,stroke:#000,color:#fff,stroke-width:2px;
   classDef bullet fill:#1B1B1B,stroke:#FFD700,color:#FFD700,stroke-width:1px;
       </div>
-      <p class="caption" style="margin-top:1rem;">Grupo pequeño, interdisciplinario y eficiente.</p>
+      <p class="caption">Grupo interdisciplinario y eficiente — entrega en menos de una semana laboral.</p>
     </section>
 
-    <!-- 6. PROTOTIPO (galería) -->
+    <!-- 10. IMPACTO Y CIERRE -->
     <section data-transition="fade">
-      <h2>6. Prototipo</h2>
-      <div class="grid-3">
-        <figure class="img-frame">
-          <img src="assets/images/homepage.png" alt="Homepage MALEJA" class="zoomable" data-caption="Homepage — navegación limpia y acceso al catálogo" />
-        </figure>
-        <figure class="img-frame">
-          <img src="assets/images/catalogo-filtros.png" alt="Catálogo con filtros" class="zoomable" data-caption="Catálogo — Filtros por categoría, talla y precio" />
-        </figure>
-        <figure class="img-frame">
-          <img src="assets/images/modal-producto.png" alt="Detalle de producto" class="zoomable" data-caption="Modal de producto con botón WhatsApp" />
-        </figure>
-      </div>
-      <p class="caption" style="margin-top:1rem;">Flujo: Inicio → Filtros → Producto → WhatsApp.</p>
-    </section>
-
-    <!-- 7. MÉTRICAS y VALIDACIÓN -->
-    <section data-transition="fade">
-      <h2>7. Métricas y validación</h2>
-      <div class="grid-3 kpi-grid">
-        <div class="kpi">
-          <div class="v">&gt;90%</div>
-          <div>Lighthouse (rendimiento/AA)</div>
-        </div>
-        <div class="kpi">
-          <div class="v">12/año</div>
-          <div>Cadencia objetivo</div>
-        </div>
-        <div class="kpi">
-          <div class="v">CTR ↑</div>
-          <div>Click a WhatsApp</div>
-        </div>
-      </div>
-      <p class="caption" style="margin-top:1rem;">Search Console + Analytics activos para seguimiento.</p>
-    </section>
-
-    <!-- 8. FINANZAS / VIABILIDAD -->
-    <section data-transition="fade">
-      <h2>8. Finanzas y viabilidad</h2>
-      <div class="grid-2">
-        <div class="box">
-          <h3>Unit economics</h3>
-          <ul>
-            <li><strong>Costo unitario:</strong> $2.181.000</li>
-            <li><strong>Precio:</strong> $3.500.000</li>
-            <li><strong>Margen:</strong> 60% (markup)</li>
-          </ul>
-        </div>
-        <div class="box">
-          <h3>Indicadores</h3>
-          <ul>
-            <li>Flujo de caja: positivo</li>
-            <li>TIR ≥ costo de capital</li>
-            <li>VPN ≥ 0</li>
-          </ul>
-          <p class="caption">Capacidad: <strong>12 proyectos/año</strong>.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 9. IMPACTO Y CIERRE -->
-    <section data-transition="fade">
-      <div style="text-align:center;">
-        <h2 style="border-bottom:none;display:inline-block;border-bottom:3px solid var(--secondary-color);padding-bottom:0.4rem;">9. Impacto y cierre</h2>
-      </div>
-      <p style="text-align:center;margin-top:1.5rem;">Digitalización accesible para microempresas; presencia web profesional, segura y medible con conexión directa a WhatsApp.</p>
-      <div class="btns" style="margin-top:1.5rem;">
+      <h2>10. Impacto y cierre</h2>
+      <p style="text-align:center;margin-top:1.5rem;">MALEJA Calzado impulsa la digitalización de microempresas en Cali,<br>ofreciendo presencia web profesional, segura y fácil de administrar.</p>
+      <div class="btns" style="text-align:center;margin-top:1.5rem;">
         <a class="btn" href="https://malejacalzado.com" target="_blank" rel="noreferrer">Ver PMV</a>
-        <a class="btn-outline" href="https://wa.me/573135152530?text=Hola%2C%20vi%20tu%20presentaci%C3%B3n%20de%20MALEJA%20Calzado..." target="_blank" rel="noreferrer">Contacto</a>
+        <a class="btn-outline" href="https://wa.me/573135152530?text=Hola%2C%20vi%20tu%20presentaci%C3%B3n..." target="_blank" rel="noreferrer">Contacto</a>
       </div>
-      <p class="caption" style="margin-top:1.5rem;">William Pérez • ADSO — SENA • Cali, Colombia</p>
+      <p class="caption" style="text-align:center;margin-top:1.5rem;">William Pérez • ADSO — SENA • Cali, Colombia</p>
     </section>
 
   </div>
 </div>
 
-<!-- Reveal.js Core -->
+<!-- Reveal.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
 
-<!-- Scripts propios -->
+<!-- Scripts personalizados -->
 <script src="presentation.js"></script>
 <script src="lightbox.js"></script>
 
-<!-- Inicialización coordinada Mermaid + Reveal + Lightbox -->
+<!-- Inicialización Mermaid + Lightbox -->
 <script>
-  // Mermaid
   if (window.mermaid) {
     mermaid.initialize({ startOnLoad: true, securityLevel: 'loose' });
   }
 
-  // Si necesitas refrescar Mermaid tras cambios dinámicos:
-  document.addEventListener('mermaid:rendered', () => {
-    // hook si luego quieres efectos
-  });
-
-  // Asegurar lightbox tras Ready de Reveal
   if (window.Reveal) {
     Reveal.on('ready', () => {
-      if (typeof initLightbox === 'function') {
-        initLightbox();
-      } else if (typeof PresentationLightbox === 'function') {
-        // fallback por si no existe initLightbox
-        window.presentationLightbox = new PresentationLightbox();
-      }
+      if (typeof initLightbox === 'function') initLightbox();
     });
   } else {
-    // Fallback si Reveal no cargó por alguna razón
     document.addEventListener('DOMContentLoaded', () => {
       if (typeof initLightbox === 'function') initLightbox();
-      else if (typeof PresentationLightbox === 'function') window.presentationLightbox = new PresentationLightbox();
     });
   }
 </script>
